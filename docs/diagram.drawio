@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Architektura Systemu Kurierskiego" id="2avJi1y0b9oPkLelPO-Q">
+    <mxGraphModel dx="2054" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iiRizyDztoSu83B35tWA-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontStyle=1;fontSize=13;" value="WARSTWA PREZENTACJI" vertex="1">
+          <mxGeometry height="420" width="220" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-2" parent="iiRizyDztoSu83B35tWA-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Portal Klienta&#xa;(React)" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-3" parent="iiRizyDztoSu83B35tWA-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Panel Dyspozytora&#xa;(React)" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-4" parent="iiRizyDztoSu83B35tWA-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="App Kuriera&#xa;(React Native)" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-5" parent="iiRizyDztoSu83B35tWA-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="App Magazyniera&#xa;(React Native)" vertex="1">
+          <mxGeometry height="60" width="180" x="20" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="API Gateway&#xa;(AWS ALB)" vertex="1">
+          <mxGeometry height="120" width="160" x="350" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-7" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#333333;fontStyle=1;fontSize=13;" value="BACKEND (.NET 8)" vertex="1">
+          <mxGeometry height="420" width="360" x="620" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-8" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Zlecenia i Płatności" vertex="1">
+          <mxGeometry height="60" width="150" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-9" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Trasy i Kurierzy" vertex="1">
+          <mxGeometry height="60" width="150" x="190" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-10" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Magazyn" vertex="1">
+          <mxGeometry height="60" width="150" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-11" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Śledzenie (SignalR)" vertex="1">
+          <mxGeometry height="60" width="150" x="190" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-12" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Konta i Tożsamość" vertex="1">
+          <mxGeometry height="60" width="150" x="20" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-13" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Raporty" vertex="1">
+          <mxGeometry height="60" width="150" x="190" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-14" parent="iiRizyDztoSu83B35tWA-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf7;strokeColor=#10739e;fontStyle=1;" value="Entity Framework Core 8" vertex="1">
+          <mxGeometry height="50" width="320" x="20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;" value="WARSTWA DANYCH" vertex="1">
+          <mxGeometry height="180" width="220" x="1120" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-16" parent="iiRizyDztoSu83B35tWA-15" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#d79b00;fontStyle=1;" value="MS SQL Server&#xa;(AWS RDS)" vertex="1">
+          <mxGeometry height="110" width="180" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-17" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;" value="INTEGRACJE ZEWNĘTRZNE" vertex="1">
+          <mxGeometry height="220" width="220" x="1120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-18" parent="iiRizyDztoSu83B35tWA-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Płatności&#xa;(PayU / Stripe)" vertex="1">
+          <mxGeometry height="45" width="180" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-19" parent="iiRizyDztoSu83B35tWA-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Mapy &amp; Trasy&#xa;(OpenStreetMap)" vertex="1">
+          <mxGeometry height="45" width="180" x="20" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-20" parent="iiRizyDztoSu83B35tWA-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Powiadomienia&#xa;(SMS / Email)" vertex="1">
+          <mxGeometry height="45" width="180" x="20" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-21" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12;" value="LEGENDA" vertex="1">
+          <mxGeometry height="150" width="1080" x="40" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-22" parent="iiRizyDztoSu83B35tWA-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Aplikacje Web (React)" vertex="1">
+          <mxGeometry height="30" width="160" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-23" parent="iiRizyDztoSu83B35tWA-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Aplikacje Mobilne (React Native)" vertex="1">
+          <mxGeometry height="30" width="200" x="190" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-24" parent="iiRizyDztoSu83B35tWA-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="API Gateway" vertex="1">
+          <mxGeometry height="30" width="120" x="405" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-25" parent="iiRizyDztoSu83B35tWA-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="Backend (.NET 8)" vertex="1">
+          <mxGeometry height="30" width="130" x="540" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-26" parent="iiRizyDztoSu83B35tWA-21" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Baza Danych (MS SQL)" vertex="1">
+          <mxGeometry height="40" width="150" x="685" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-27" parent="iiRizyDztoSu83B35tWA-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="Zewnętrzne API" vertex="1">
+          <mxGeometry height="30" width="120" x="850" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-28" parent="iiRizyDztoSu83B35tWA-21" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=0;" value="────▶ HTTPS / REST API: Komunikacja synchroniczna&#xa;────▶ WebSocket (SignalR): Śledzenie w czasie rzeczywistym&#xa;────▶ T-SQL (1433): Połączenie ORM z bazą danych SQL" vertex="1">
+          <mxGeometry height="60" width="1040" x="20" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-29" edge="1" parent="1" source="iiRizyDztoSu83B35tWA-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=10;" target="iiRizyDztoSu83B35tWA-6" value="HTTPS / WS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-30" edge="1" parent="1" source="iiRizyDztoSu83B35tWA-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=10;" target="iiRizyDztoSu83B35tWA-7" value="HTTPS / WS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-31" edge="1" parent="1" source="iiRizyDztoSu83B35tWA-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#d79b00;fontSize=10;" target="iiRizyDztoSu83B35tWA-16" value="T-SQL (1433)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iiRizyDztoSu83B35tWA-32" edge="1" parent="1" source="iiRizyDztoSu83B35tWA-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#b85450;fontSize=10;" target="iiRizyDztoSu83B35tWA-17" value="HTTPS / Webhooks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
