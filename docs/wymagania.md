@@ -24,7 +24,7 @@
 | US-08 | Magazynier | Przyjęcie i sortowanie paczki w magazynie | Must |
 | US-09 | Kurier | Rejestracja próby doręczenia | Must |
 | US-10 | Odbiorca | Potwierdzenie odbioru przesyłki | Must |
-| US-11 | Dyspozytor | Zlecenie zwrotu po dwóch nieudanych próbach | Must |
+| US-11 | Dyspozytor | Zlecenie i obsługa zwrotu paczki | Must |
 | US-12 | Odbiorca | Ustalenie nowego terminu doręczenia | Could |
 | US-13 | Administrator | Zarządzanie kontami i cennikiem | Should |
 | US-14 | Administrator | Raporty o przesyłkach i terminowości | Could |
@@ -55,11 +55,11 @@
 **Priorytet:** Must
 
 ### US-03: Płatność online za zlecenie
-**Jako** Klient (nadawca) **chcę** zapłacić za zlecenie online (m.in. BLIK, przelew), **aby** zlecenie zostało przyjęte do realizacji.
+**Jako** Klient (nadawca) **chcę** zapłacić za zlecenie online przez PayU (m.in. BLIK, natychmiastowe przelewy online), **aby** zlecenie zostało przyjęte do realizacji.
 
 **Kryteria akceptacji:**
-- **Given** zaakceptowałem cenę, **When** płatność zakończy się powodzeniem, **Then** system nadaje numer przesyłki i generuje etykietę.
-- **Given** płatność zakończyła się niepowodzeniem, **When** system otrzymuje taką informację, **Then** system anuluje zlecenie i kończy proces („Zlecenie anulowane”).
+- **Given** zaakceptowałem cenę, **When** płatność w PayU zakończy się powodzeniem, **Then** system nadaje numer przesyłki i generuje etykietę.
+- **Given** płatność zakończyła się niepowodzeniem, **When** system otrzymuje taką informację od PayU, **Then** system anuluje zlecenie i kończy proces („Zlecenie anulowane”).
 - **Given** płatność nie została potwierdzona, **When** zlecenie czeka na wynik płatności, **Then** zlecenie nie jest przekazywane do realizacji.
 
 **Priorytet:** Must
@@ -127,17 +127,18 @@
 **Jako** Odbiorca **chcę** potwierdzić odbiór paczki kodem lub podpisem, **aby** doręczenie było udokumentowane.
 
 **Kryteria akceptacji:**
-- **Given** kurier jest pod adresem doręczenia, **When** odbieram paczkę i potwierdzam odbiór kodem lub podpisem, **Then** system rejestruje potwierdzenie i zmienia status na „doręczona”.
+- **Given** kurier jest pod adresem doręczenia, **When** odbieram paczkę i potwierdzam odbiór kodem z SMS lub podpisem, **Then** system rejestruje potwierdzenie i zmienia status na „doręczona”.
 - **Given** doręczenie zostało potwierdzone, **When** system zapisuje potwierdzenie, **Then** system powiadamia Klienta (nadawcę) o doręczeniu i kończy proces („Przesyłka doręczona”).
 
 **Priorytet:** Must
 
-### US-11: Zlecenie zwrotu po dwóch nieudanych próbach
+### US-11: Zlecenie i obsługa zwrotu paczki
 **Jako** Dyspozytor **chcę** zlecić zwrot paczki do nadawcy po dwóch nieudanych próbach doręczenia, **aby** nie blokować paczki w obiegu.
+**Jako** Magazynier **chcę** przyjąć zwracaną paczkę i odesłać ją do nadawcy, **aby** zwrot został zrealizowany.
 
 **Kryteria akceptacji:**
 - **Given** Kurier zarejestrował nieudaną próbę, a Odbiorca został powiadomiony, **When** Dyspozytor stwierdza, że to była 2. próba, **Then** Dyspozytor zleca zwrot paczki do nadawcy.
-- **Given** zwrot został zlecony, **When** Magazynier przyjmuje paczkę i odsyła ją do nadawcy, **Then** system zmienia status na „zwrócona do nadawcy” i kończy proces („Paczka zwrócona”).
+- **Given** zwrot został zlecony, **When** Magazynier przyjmuje paczkę w aplikacji mobilnej i odsyła ją do nadawcy, **Then** system zmienia status na „zwrócona do nadawcy” i kończy proces („Paczka zwrócona”).
 - **Given** to była dopiero 1. próba, **When** Dyspozytor sprawdza liczbę prób, **Then** zwrot nie jest zlecany, a paczka wraca do ponownego przydziału.
 
 **Priorytet:** Must
@@ -173,13 +174,14 @@
 **Priorytet:** Could
 
 ### US-15: Przekazanie wyniku płatności i wysyłka powiadomień
-**Jako** Systemy zewnętrzne (bramka płatności, bramka SMS/e-mail) **chcę** przekazywać wyniki płatności oraz dostarczać powiadomienia, **aby** system mógł aktualizować statusy zleceń i informować klientów oraz odbiorców.
+**Jako** Systemy zewnętrzne (PayU, Twilio, SendGrid) **chcę** przekazywać wyniki płatności oraz dostarczać powiadomienia SMS i e-mail, **aby** system mógł aktualizować statusy zleceń i informować klientów oraz odbiorców.
 
 **Kryteria akceptacji:**
-- **Given** płatność została rozliczona w bramce płatności, **When** bramka przesyła wynik do systemu, **Then** system przechodzi do nadania numeru przesyłki (płatność udana) albo anuluje zlecenie (płatność nieudana).
-- **Given** Kurier zarejestrował nieudaną próbę doręczenia, **When** system zleca powiadomienie, **Then** bramka SMS/e-mail dostarcza wiadomość do Odbiorcy.
-- **Given** doręczenie zostało potwierdzone, **When** system zleca powiadomienie, **Then** bramka SMS/e-mail dostarcza wiadomość do Klienta (nadawcy).
-- **Given** bramka powiadomień jest niedostępna, **When** system próbuje wysłać wiadomość, **Then** ponawia próbę i zapisuje błąd w logach.
+- **Given** płatność została rozliczona w PayU, **When** PayU przesyła wynik do systemu, **Then** system przechodzi do nadania numeru przesyłki (płatność udana) albo anuluje zlecenie (płatność nieudana).
+- **Given** przesyłka jest przypisana do doręczenia, **When** system zleca wysyłkę kodu odbioru, **Then** Twilio dostarcza do Odbiorcy SMS z kodem odbioru.
+- **Given** Kurier zarejestrował nieudaną próbę doręczenia, **When** system zleca powiadomienie, **Then** SendGrid dostarcza do Odbiorcy e-mail o nieudanej próbie.
+- **Given** doręczenie zostało potwierdzone, **When** system zleca powiadomienie, **Then** SendGrid dostarcza do Klienta (nadawcy) e-mail o doręczeniu.
+- **Given** Twilio lub SendGrid jest niedostępny, **When** system próbuje wysłać wiadomość, **Then** ponawia próbę i zapisuje błąd w logach.
 
 **Priorytet:** Must
 
@@ -225,7 +227,7 @@ Historyjki spoza procesu (wynikają z `kontekst.md`): US-01, US-04, US-05, US-12
 | NFR-01 | Wydajność | Wyświetlenie statusu przesyłki trwa maksymalnie 2 s dla 95% żądań przy 500 jednocześnie działających użytkownikach. |
 | NFR-02 | Dostępność | System jest dostępny co najmniej 99,5% czasu w skali miesiąca (z wyłączeniem zaplanowanych okien serwisowych). |
 | NFR-03 | Bezpieczeństwo | Uwierzytelnianie opiera się na ASP.NET Core Identity i tokenach JWT; hasła są przechowywane jako hashe z solą; cała komunikacja odbywa się po HTTPS; dostęp jest ograniczony rolami (np. Kurier widzi wyłącznie paczki ze swojej trasy). |
-| NFR-04 | Bezpieczeństwo płatności | System nie przechowuje danych kart płatniczych; płatności obsługuje zewnętrzna bramka płatności. |
+| NFR-04 | Bezpieczeństwo płatności | System nie przechowuje danych kart płatniczych; płatności obsługuje zewnętrzna bramka PayU, a wynik płatności jest przekazywany do systemu przez HTTPS / webhooki. |
 | NFR-05 | Skalowalność | Backend działa w kontenerach Docker i skaluje się poziomo (AWS ECS za AWS ALB) bez zmian w kodzie; system obsługuje co najmniej 10 000 przesyłek dziennie. |
 | NFR-06 | Użyteczność | Nowy użytkownik składa pierwsze zlecenie w maksymalnie 5 minut bez instrukcji; aplikacje mobilne Kuriera i Magazyniera pozwalają zarejestrować skan paczki w maksymalnie 3 interakcjach. |
 | NFR-07 | Zgodność z RODO | Dane osobowe klientów i odbiorców są usuwane lub anonimizowane w ciągu 30 dni od zgłoszenia żądania; dostęp do nich jest rejestrowany. |
@@ -234,4 +236,4 @@ Historyjki spoza procesu (wynikają z `kontekst.md`): US-01, US-04, US-05, US-12
 | NFR-10 | Niezawodność | Kopia zapasowa bazy danych jest wykonywana codziennie; odtworzenie danych po awarii trwa maksymalnie 4 godziny. |
 | NFR-11 | Zgodność platform | Panel webowy działa w aktualnych wersjach Chrome, Firefox i Edge; aplikacje mobilne działają na Androidzie i iOS. |
 | NFR-12 | Utrzymywalność | Backend jest napisany w C# (.NET 10 LTS); logika biznesowa jest pokryta testami jednostkowymi w co najmniej 70%. |
-| NFR-13 | Licencje | Dane map OpenStreetMap są wyświetlane z podaniem źródła zgodnie z licencją ODbL. |
+| NFR-13 | Licencje i mapy | Dane map OpenStreetMap są wyświetlane z podaniem źródła zgodnie z licencją ODbL. Na produkcji system korzysta z własnego serwera tras (OSRM) i kafelków mapy (self-hosting), aby nie przekraczać limitów publicznych serwerów OpenStreetMap. |
