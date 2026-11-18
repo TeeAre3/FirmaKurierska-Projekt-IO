@@ -1,104 +1,108 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="Architektura Systemu Kurierskiego" id="COtPqoynfPdIa52QAzfn">
-    <mxGraphModel dx="2904" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+  <diagram name="Architektura Systemu Kurierskiego" id="f3XCbE_o1uJTqB9RR6UK">
+    <mxGraphModel dx="1712" dy="919" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontStyle=1;fontSize=13;" value="WARSTWA PREZENTACJI" vertex="1">
-          <mxGeometry height="420" width="220" x="-570" y="170" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-83" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#052E56;fontStyle=1;fontSize=11;" value="Klient i Odbiorca&#xa;[Person / Web App]&#xa;Portal Klienta (React.js)&#xa;Składanie zleceń, płatności, śledzenie paczki" vertex="1">
+          <mxGeometry height="75" width="230" x="90" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-2" parent="WoOHqbXx6Qasko0I2uYx-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Portal Klienta i Odbiorcy&#xa;(React)" vertex="1">
-          <mxGeometry height="60" width="180" x="20" y="40" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#052E56;fontStyle=1;fontSize=11;" value="Dyspozytor i Administrator&#xa;[Person / Web App]&#xa;Panel Web (React.js)&#xa;Planowanie tras, przydział kurierów, cenniki i raporty" vertex="1">
+          <mxGeometry height="75" width="230" x="90" y="260" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-3" parent="WoOHqbXx6Qasko0I2uYx-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Panel Dyspozytora&#xa;i Administratora (React)" vertex="1">
-          <mxGeometry height="60" width="180" x="20" y="130" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-85" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#052E56;fontStyle=1;fontSize=11;" value="Kurier&#xa;[Person / Mobile App]&#xa;App Mobilna (React Native)&#xa;Odbiór od klienta, nawigacja i doręczenie przesyłki" vertex="1">
+          <mxGeometry height="75" width="230" x="90" y="360" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-4" parent="WoOHqbXx6Qasko0I2uYx-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="App Kuriera&#xa;(React Native)" vertex="1">
-          <mxGeometry height="60" width="180" x="20" y="220" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;strokeColor=#052E56;fontStyle=1;fontSize=11;" value="Magazynier&#xa;[Person / Mobile App]&#xa;App Mobilna (React Native)&#xa;Przyjęcie, sortowanie i obsługa zwrotów" vertex="1">
+          <mxGeometry height="75" width="230" x="90" y="460" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-5" parent="WoOHqbXx6Qasko0I2uYx-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="App Magazyniera&#xa;(React Native)" vertex="1">
-          <mxGeometry height="60" width="180" x="20" y="310" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-87" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#444444;strokeWidth=2;dashed=1;fontStyle=1;fontSize=13;startSize=30;" value="System Firma Kurierska [Software System Boundary]" vertex="1">
+          <mxGeometry height="400" width="480" x="530" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Load Balancer&#xa;(AWS ALB)" vertex="1">
-          <mxGeometry height="120" width="160" x="-230" y="300" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-88" parent="Api4M7d2Ow9c6wk9vJWK-87" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B547E;fontColor=#ffffff;strokeColor=#1C3754;fontStyle=1;fontSize=11;" value="Load Balancer&#xa;[Container: AWS ALB]&#xa;Routowanie zapytań HTTP/WS i terminacja TLS 1.3" vertex="1">
+          <mxGeometry height="55" width="420" x="30" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-7" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#333333;fontStyle=1;fontSize=12;startSize=40;" value="BACKEND (.NET 10 (LTS))&#xa;[kontener Docker na AWS ECS]" vertex="1">
-          <mxGeometry height="420" width="360" x="50" y="170" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-89" parent="Api4M7d2Ow9c6wk9vJWK-87" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168BD;fontColor=#ffffff;strokeColor=#0B457F;fontStyle=1;fontSize=11;" value="Backend API&#xa;[Container: C# / ASP.NET Core (.NET 10 LTS) w kontenerze Docker na AWS ECS]&#xa;Modularny Monolit realizujący pełną logikę biznesową: zlecenia, wyceny, trasy, magazyn, śledzenie na żywo (SignalR WebSocket) oraz tożsamość i autoryzację JWT." vertex="1">
+          <mxGeometry height="110" width="420" x="30" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-8" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Zlecenia i Płatności" vertex="1">
-          <mxGeometry height="60" width="150" x="20" y="70" as="geometry" />
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-90" parent="Api4M7d2Ow9c6wk9vJWK-87" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#1168BD;fontColor=#ffffff;strokeColor=#0B457F;fontStyle=1;fontSize=11;" value="Baza Danych&#xa;[Container: MS SQL Server na AWS RDS]&#xa;Relacyjna baza danych obsługująca transakcje ACID (zintegrowana przez EF Core 10)." vertex="1">
+          <mxGeometry height="90" width="260" x="110" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-9" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Trasy i Kurierzy" vertex="1">
-          <mxGeometry height="60" width="150" x="190" y="70" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-10" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Magazyn" vertex="1">
-          <mxGeometry height="60" width="150" x="20" y="150" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-11" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Śledzenie (SignalR)" vertex="1">
-          <mxGeometry height="60" width="150" x="190" y="150" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-12" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Konta i Tożsamość&#xa;(Identity / JWT)" vertex="1">
-          <mxGeometry height="60" width="150" x="20" y="230" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-13" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontStyle=1;" value="Raporty" vertex="1">
-          <mxGeometry height="60" width="150" x="190" y="230" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-14" parent="WoOHqbXx6Qasko0I2uYx-7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b1ddf7;strokeColor=#10739e;fontStyle=1;" value="Entity Framework Core 10 (LTS)" vertex="1">
-          <mxGeometry height="50" width="320" x="20" y="320" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-15" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=13;" value="WARSTWA DANYCH" vertex="1">
-          <mxGeometry height="180" width="220" x="510" y="410" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-16" parent="WoOHqbXx6Qasko0I2uYx-15" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#d79b00;fontStyle=1;" value="MS SQL Server&#xa;(AWS RDS)" vertex="1">
-          <mxGeometry height="110" width="180" x="20" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-17" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=13;" value="INTEGRACJE ZEWNĘTRZNE" vertex="1">
-          <mxGeometry height="220" width="220" x="510" y="170" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-18" parent="WoOHqbXx6Qasko0I2uYx-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Płatności&#xa;(PayU)" vertex="1">
-          <mxGeometry height="45" width="180" x="20" y="35" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-19" parent="WoOHqbXx6Qasko0I2uYx-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Mapy &amp; Trasy&#xa;(OpenStreetMap / OSRM)" vertex="1">
-          <mxGeometry height="45" width="180" x="20" y="95" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-20" parent="WoOHqbXx6Qasko0I2uYx-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontStyle=1;" value="Powiadomienia&#xa;(Twilio SMS + SendGrid)" vertex="1">
-          <mxGeometry height="45" width="180" x="20" y="155" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-21" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12;" value="LEGENDA" vertex="1">
-          <mxGeometry height="150" width="1080" x="-450" y="620" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-22" parent="WoOHqbXx6Qasko0I2uYx-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Aplikacje Web (React)" vertex="1">
-          <mxGeometry height="30" width="160" x="20" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-23" parent="WoOHqbXx6Qasko0I2uYx-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Aplikacje Mobilne (React Native)" vertex="1">
-          <mxGeometry height="30" width="200" x="190" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-24" parent="WoOHqbXx6Qasko0I2uYx-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Load Balancer (AWS ALB)" vertex="1">
-          <mxGeometry height="30" width="160" x="405" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-25" parent="WoOHqbXx6Qasko0I2uYx-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="Backend (.NET 10)" vertex="1">
-          <mxGeometry height="30" width="130" x="580" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-26" parent="WoOHqbXx6Qasko0I2uYx-21" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Baza Danych (MS SQL)" vertex="1">
-          <mxGeometry height="40" width="150" x="725" y="35" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-27" parent="WoOHqbXx6Qasko0I2uYx-21" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="Zewnętrzne API" vertex="1">
-          <mxGeometry height="30" width="120" x="890" y="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-28" parent="WoOHqbXx6Qasko0I2uYx-21" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=0;" value="────▶  HTTPS / REST API / WS: Komunikacja z klientami (czarne połączenie)&#xa;────▶  T-SQL (1433): Połączenie ORM z bazą danych MS SQL Server (pomarańczowe połączenie)&#xa;◀───▶  HTTPS / Webhooks: Dwukierunkowa integracja z zewnętrznymi API (czerwone połączenie)" vertex="1">
-          <mxGeometry height="60" width="1040" x="20" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-29" edge="1" parent="1" source="WoOHqbXx6Qasko0I2uYx-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=10;strokeColor=#000000;" target="WoOHqbXx6Qasko0I2uYx-6" value="HTTPS / REST API / WS">
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-91" edge="1" parent="Api4M7d2Ow9c6wk9vJWK-87" source="Api4M7d2Ow9c6wk9vJWK-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#2B547E;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-89" value="HTTP / WS (Routowanie zapytań)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-30" edge="1" parent="1" source="WoOHqbXx6Qasko0I2uYx-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontSize=10;strokeColor=#000000;" target="WoOHqbXx6Qasko0I2uYx-7" value="HTTPS / REST API / WS">
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-92" edge="1" parent="Api4M7d2Ow9c6wk9vJWK-87" source="Api4M7d2Ow9c6wk9vJWK-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#1168BD;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-90" value="T-SQL / TCP 1433 (EF Core 10)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-31" edge="1" parent="1" source="WoOHqbXx6Qasko0I2uYx-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#d79b00;fontSize=10;" target="WoOHqbXx6Qasko0I2uYx-16" value="T-SQL (1433)">
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-93" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="System Płatności PayU&#xa;[Software System]&#xa;Płatności BLIK i szybkie przelewy online" vertex="1">
+          <mxGeometry height="75" width="250" x="1280" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-94" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="Mapy &amp; Trasy (OSRM / OpenStreetMap)&#xa;[Software System]&#xa;Self-hosted serwer kafelków i wyznaczania tras (ODbL)" vertex="1">
+          <mxGeometry height="75" width="250" x="1280" y="307.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-95" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="Powiadomienia (Twilio SMS + SendGrid)&#xa;[Software System]&#xa;Wysyłka wiadomości SMS oraz powiadomień e-mail" vertex="1">
+          <mxGeometry height="75" width="250" x="1280" y="422.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-96" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;fontSize=12;" value="LEGENDA MODELU C4 (LEVEL 2: CONTAINER DIAGRAM)" vertex="1">
+          <mxGeometry height="130" width="1060" x="250" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-97" parent="Api4M7d2Ow9c6wk9vJWK-96" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427B;fontColor=#ffffff;fontStyle=1;" value="Aktor / App Klienta" vertex="1">
+          <mxGeometry height="30" width="160" x="20" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-98" parent="Api4M7d2Ow9c6wk9vJWK-96" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168BD;fontColor=#ffffff;fontStyle=1;" value="Kontener Wewnętrzny" vertex="1">
+          <mxGeometry height="30" width="160" x="200" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-99" parent="Api4M7d2Ow9c6wk9vJWK-96" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2B547E;fontColor=#ffffff;fontStyle=1;" value="Load Balancer (AWS ALB)" vertex="1">
+          <mxGeometry height="30" width="170" x="380" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-100" parent="Api4M7d2Ow9c6wk9vJWK-96" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;fontStyle=1;" value="System Zewnętrzny" vertex="1">
+          <mxGeometry height="30" width="160" x="570" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-101" parent="Api4M7d2Ow9c6wk9vJWK-96" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=0;" value="Opis protokołów i przepływów:&#xa;────▶  HTTPS / REST / WS: Indywidualne połączenia od aktorów do systemu oraz do usług zewnętrznych&#xa;◀───▶  HTTPS REST / Webhooks: Dwukierunkowa komunikacja z bramką PayU&#xa;────▶  T-SQL (TCP 1433): Połączenie ORM EF Core 10 z bazą relacyjną MS SQL Server na AWS RDS" vertex="1">
+          <mxGeometry height="50" width="1020" x="20" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-102" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#08427B;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-88" value="HTTPS / REST">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WoOHqbXx6Qasko0I2uYx-32" edge="1" parent="1" source="WoOHqbXx6Qasko0I2uYx-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#b85450;fontSize=10;startArrow=classic;endArrow=classic;" target="WoOHqbXx6Qasko0I2uYx-17" value="HTTPS / Webhooks">
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-103" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#08427B;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-88" value="HTTPS / REST">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="297.5" />
+              <mxPoint x="390" y="227.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-104" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#08427B;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-88" value="HTTPS / SignalR WS">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-105" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#08427B;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-88" value="HTTPS / SignalR WS">
+          <mxGeometry relative="1" x="0.2187" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="497.5" />
+              <mxPoint x="500" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-106" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#666666;startArrow=classic;endArrow=classic;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-93" value="HTTPS REST / Webhooks">
+          <mxGeometry relative="1" x="-0.0686" as="geometry">
+            <Array as="points">
+              <mxPoint x="1110" y="320" />
+              <mxPoint x="1110" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-107" edge="1" parent="1" source="Api4M7d2Ow9c6wk9vJWK-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#666666;fontSize=10;" target="Api4M7d2Ow9c6wk9vJWK-94" value="HTTPS REST (OSRM API)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Api4M7d2Ow9c6wk9vJWK-108" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#666666;fontSize=10;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Api4M7d2Ow9c6wk9vJWK-95" value="HTTPS REST (SMS / Email)">
+          <mxGeometry relative="1" x="-0.0105" as="geometry">
+            <Array as="points">
+              <mxPoint x="1210" y="370" />
+              <mxPoint x="1210" y="460" />
+            </Array>
+            <mxPoint x="990" y="370" as="sourcePoint" />
+            <mxPoint x="1270" y="460" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
